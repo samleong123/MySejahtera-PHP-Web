@@ -98,6 +98,12 @@ x-auth-token: <X-AUTH-TOKEN you get at Step 1>
 
 Note : for Step 4 and 5 , you must key in your Date of Birth first into MySejahtera Personal Details before you can generate and download your PDF version of Vaccine Digital Certificate or else you will get stucked on Step 4.
 
+## Requirements to deploy this PHP Web App
+1. PHP installed , 7.0 + is recommended
+2. Web server that configured properly to work with PHP
+3. Internet access
+4. reCaptcha site key (Replace the sitekey to ur own one in ```index.html```)
+
 ## Error code
 
 1. 401 on details.php
