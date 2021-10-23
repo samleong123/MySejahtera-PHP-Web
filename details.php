@@ -24,6 +24,19 @@ error_reporting (E_ALL ^ E_NOTICE);
 $mysjid = $_POST["mysj_id"];
 $mysjpword = $_POST["password"];
 $mysjid = str_replace("-","",$mysjid);
+if(empty($mysjid)) { 
+    echo '<body>
+<div class="px-4 py-5 my-5 text-center"> <h1 class="display-5 fw-bold">MySejahtera details checker</h1>  </br>
+<h2 class="lead mb-4">Check your MySejahtera details on this website via MySejahtera API.</br>Powered by <a href="https://github.com/samleong123">Sam Sam</a>.</br>Source code : <a href="https://github.com/samleong123/MySejahtera-PHP-Web">here</a>.</h2>
+   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+<strong>Uh-oh.</br> Seems like you did not provide username to retrieve your MySejahtera details.</br> Please try again later. </br> [403 Forbidden] <strong>'; header("HTTP/1.1 403 Forbidden"); header("Fail_Reason: Did not provide username"); header("backend-status: N/A"); header("frontend-status: 403");
+    
+} else {
+    if(empty($mysjpassword)) {echo '<body>
+<div class="px-4 py-5 my-5 text-center"> <h1 class="display-5 fw-bold">MySejahtera details checker</h1>  </br>
+<h2 class="lead mb-4">Check your MySejahtera details on this website via MySejahtera API.</br>Powered by <a href="https://github.com/samleong123">Sam Sam</a>.</br>Source code : <a href="https://github.com/samleong123/MySejahtera-PHP-Web">here</a>.</h2>
+   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+<strong>Uh-oh.</br> Seems like you did not provide password to retrieve your MySejahtera details.</br> Please try again later. </br> [403 Forbidden] <strong>'; header("HTTP/1.1 403 Forbidden"); header("Fail_Reason: Did not provide password"); header("backend-status: N/A"); header("frontend-status: 403");} else {
 $url = "https://mysejahtera.malaysia.gov.my/epms/login";
 
 $curl = curl_init($url);
@@ -176,5 +189,7 @@ echo '</p>';
     
   </div>
 </footer>';
+}
+}
 ?>
 
