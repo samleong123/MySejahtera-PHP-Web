@@ -63,6 +63,11 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 $resp = curl_exec($curl);
 $http_response = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 curl_close($curl);
+if ($http_response == '403') {echo '<body>
+<div class="px-4 py-5 my-5 text-center"> <h1 class="display-5 fw-bold">MySejahtera details checker</h1>  </br>
+<h2 class="lead mb-4">Check your MySejahtera details on this website via MySejahtera API.</br>Powered by <a href="https://github.com/samleong123">Sam Sam</a>.</br>Source code : <a href="https://github.com/samleong123/MySejahtera-PHP-Web">here</a>.</h2>
+   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+<strong>Uh-oh.</br> MySejahtera is blocking this request.</br> Please try again later. </br> [403 Forbidden] <strong>'; header("backend-status: 403"); header("frontend-status: 200");} else {
 if ($http_response == '401') {$status_server = '
 <body>
 <div class="px-4 py-5 my-5 text-center"> <h1 class="display-5 fw-bold">MySejahtera details checker</h1>  </br>
@@ -189,6 +194,7 @@ echo '</p>';
     
   </div>
 </footer>';
+}
 }
 }
 ?>
