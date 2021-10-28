@@ -9,6 +9,14 @@
 3. I will not be responsible not be liable for any problem that will produce losses or inconveniences incurred as a result of such changes or differences.
 4. MySejahtera's API on this web app was grabbed via ProxyMan on iPadOS and iOS version of MySejahtera (User Agent used in this PHP Web App when making request to MySejahtera : ```MySejahtera/1.0.36 (iPhone; iOS 14.4.2; Scale/2.00)```)
 
+## Firewall
+MySejahtera have started to block some region including US / Germany to access their website. 
+![image](https://user-images.githubusercontent.com/58818070/139167924-4804605b-027b-4418-aef2-fd369777f8e0.png)
+![image](https://user-images.githubusercontent.com/58818070/139167979-4c5358ad-accd-4542-b9b4-6bf65bba639c.png) 
+
+
+
+
 
 ## About this project
 Inspired by [nakvaksin.com](https://github.com/nubpro/nakvaksin). 
@@ -31,7 +39,7 @@ You can :
 </br>
 Note : You must key in your Date of Birth first into MySejahtera Personal Details before you can generate your PDF version of Vaccine Digital Certificate.
 
-## How to retrieve login credentials on MySejahtera's API
+## How to retrieve data via MySejahtera's API
 1. Login
 
 Do a POST request to here ```https://mysejahtera.malaysia.gov.my/epms/login``` with form and header below :
@@ -82,7 +90,7 @@ Host: mysejahtera.malaysia.gov.my
 x-auth-token: <X-AUTH-TOKEN you get at Step 1>
 
 ```
-**200 if success** , **500 / 401 / 403 if x-auth-token invalid**.
+**200 if success** , **500 / 401 if x-auth-token invalid**.
 
 5. Download PDF version of Vaccine Digital Certificate
 
@@ -94,7 +102,7 @@ Host: mysejahtera.malaysia.gov.my
 x-auth-token: <X-AUTH-TOKEN you get at Step 1>
 
 ```
-**200 if success** , **500 / 401 / 403 if x-auth-token invalid**.
+**200 if success** , **500 / 401 if x-auth-token invalid**.
 
 Note : for Step 4 and 5 , you must key in your Date of Birth first into MySejahtera Personal Details before you can generate and download your PDF version of Vaccine Digital Certificate or else you will get stucked on Step 4.
 
@@ -106,17 +114,20 @@ Note : for Step 4 and 5 , you must key in your Date of Birth first into MySejaht
 
 ## Error code
 
-1. 401 on details.php
+1. 401 / 403 on details.php
 
-Your username or password did not match the record in MySejahtera. Please check your username and password.
+Your username or password did not match the record in MySejahtera. Please check your username and password.</br>or</br>
+Your request is being blocked by MySejahtera due to firewall rules.
 
 2. 403 on semak_vaksin.php / pdf-digital-cert.php
 
-You did not provide token to check your vaccine details. Please try to login again.
+You did not provide token to check your vaccine details. Please try to login again.</br>or</br>
+Your request is being blocked by MySejahtera due to firewall rules.
 
 3. 401 on semak_vaksin.php / pdf-digital-cert.php
 
-The x-auth-token is expired. You need to relogin at the main page.
+The x-auth-token is expired. You need to relogin at the main page.</br>or</br>
+Your request is being blocked by MySejahtera due to firewall rules.
 
 
 
