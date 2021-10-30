@@ -87,6 +87,8 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 $headers = array(
   'Authorization: Basic '. base64_encode("$mysjid:$mysjpword"),
+   "User-Agent: MySejahtera/1.0.36 (iPhone; iOS 14.4.2; Scale/2.00)",
+   "Host: mysejahtera.malaysia.gov.my",
    "Content-Type: application/json",
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
