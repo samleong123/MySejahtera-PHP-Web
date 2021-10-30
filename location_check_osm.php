@@ -71,7 +71,7 @@ if ($lat == 'NULL') {
 <h2 class="lead mb-4">Check and Track COVID-19 Hotspot.</br>Powered by <a href="https://github.com/samleong123">Sam Sam</a>.</br>Source code : <a href="https://github.com/samleong123/MySejahtera-PHP-Web">here</a>.</h2>
    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
 	<strong>Uh-oh.</br> Seems like your location is invalid. </br> Please try again later.';
-}
+} else {
 $data = array();
 $data[0]['lat'] = $lat;
 $data[0]['lng'] = $lon;
@@ -121,7 +121,7 @@ echo '<body>
   </div>
 </footer>';
 }
-
+}
 
 
 }
