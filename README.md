@@ -36,6 +36,8 @@ You can :
 1. Retrieve your **personal risk status , vaccination status and your NRIC number / Passport Number**.
 2. Retrieve your **Vaccination Process , including 1st Dose Appointment and 2nd Dose Appointment**.
 3. Retrieve your **PDF version of Vaccine Digital Certificate , a new feature launched by MySejahtera**.
+4. Check and track the **COVID-19 Case(s)**.
+
 </br>
 Note : You must key in your Date of Birth first into MySejahtera Personal Details before you can generate your PDF version of Vaccine Digital Certificate.
 
@@ -104,6 +106,19 @@ x-auth-token: <X-AUTH-TOKEN you get at Step 1>
 ```
 **200 if success** , **500 / 401 if x-auth-token invalid**.
 
+6. Request COVID-19 Case(s) and zone risk around the location
+Do a POST request to here ```https://mysejahtera.malaysia.gov.my/register/api/nearby/hotspots?type=locateme```
+```
+Header :
+'Authorization: Basic '. base64_encode("$mysj_id:$mysj_pword"),
+"User-Agent: MySejahtera/1.0.36 (iPhone; iOS 14.4.2; Scale/2.00)",
+"Host: mysejahtera.malaysia.gov.my",
+"Content-Type: application/json",
+
+Form : 
+[{"lat":"xx","lng":"xx","classification":"LOW_RISK_NS"}]
+```
+
 Note : for Step 4 and 5 , you must key in your Date of Birth first into MySejahtera Personal Details before you can generate and download your PDF version of Vaccine Digital Certificate or else you will get stucked on Step 4.
 
 ## Requirements to deploy this PHP Web App
@@ -129,13 +144,17 @@ Your request is being blocked by MySejahtera due to firewall rules.
 The x-auth-token is expired. You need to relogin at the main page.</br>or</br>
 Your request is being blocked by MySejahtera due to firewall rules.
 
-
+## Location API 
+I used [Nominatim](https://nominatim.org/)'s API to retrieve the coordinates. </br>
+I created a small proxy via my Nginx web server so all traffic for this API location request that returning 200 HTTP will be cached for 1 week. 
 
 ## Screenshots
 ![personal_risk](https://user-images.githubusercontent.com/58818070/138039865-833547d4-d8fc-4c8d-a48e-ef7828da2af3.png)
 ![personal_vax](https://user-images.githubusercontent.com/58818070/138040113-805ea178-4378-48ef-b576-84d86b67502f.png)
 ![pdf-digital-error-no-token](https://user-images.githubusercontent.com/58818070/138040786-134f7274-5f88-4cfa-a925-5e717f63b455.png)
 ![pdf-digital-error-token-expired](https://user-images.githubusercontent.com/58818070/138041564-2334c332-efee-4c78-88ad-21d626d5f200.png)
+![hotspot_tracker](https://user-images.githubusercontent.com/58818070/139540491-45617fca-2a00-4aeb-b98e-d6b8c8904728.png)
+
 
 ## Credit
 1. [MySejahtera](https://mysejahtera.malaysia.gov.my)
