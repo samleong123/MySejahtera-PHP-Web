@@ -169,19 +169,30 @@ echo '</p>';
   echo '</strong>';
 		echo '</p>
 
-      </div>
-    </div>';
+      </div>';
+	  
+   echo '</div>';
 	
 	
 
 
-
+echo '<div>';
 	 echo '<h2 class="pb-2 border-bottom">Wanted to check your vaccination status?</h2>';
-	 echo '<form class="p-4 p-md-5  rounded-3 "id="semak-vaksin" method="post" action="./semak_vaksin.php">';
+	 echo '<form class="p-4 p-md-5  rounded-3" id="semak-vaksin" method="post" action="./semak_vaksin.php">';
 	 	 echo '<input type="hidden" name="name" value="'; echo $name; echo '" />';
 	 echo '<input type="hidden" name="x-auth-token" value="'; echo $token; echo '" />';
 	  echo '<input type="hidden" name="ic-num" value="'; echo $ic_num; echo '" />';
-	 echo ' <button class="w-100 btn btn-lg btn-primary" >Check now</button>';
+	 echo ' <button class="w-100 btn btn-lg btn-primary" >Check now</button> </form> </div>';
+	 
+	 
+	 echo '<div>';
+	 
+	  echo '<h2 class="pb-2 border-bottom">Wanted to track the COVID-19 Hotspot?</h2>';
+	echo '<form class="p-4 p-md-5 rounded-3" id="track_covid19_hotspots" method="post" action="./location_check_osm.php">';
+	 echo '<input type="hidden" name="name" value="'; echo $result['employeeInfo']['displayName']; echo '" />';
+	 	 echo '<input type="hidden" name="mysjid" value="'; echo $mysjid; echo '" />';
+	 echo '<input type="hidden" name="mysjpword" value="'; echo $mysjpword; echo '" />';
+	 echo ' <button class="w-100 btn btn-lg btn-primary" >Track now</button> </form> </div>';
 	
 	 echo '		
 		
