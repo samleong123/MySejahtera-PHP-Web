@@ -8,6 +8,7 @@
 2. This web app won't record user's MySejahtera username and password as this web app will just simply pass the username / password to the API and retrieve the ```x-auth-token```. When requesting ```semak-vaksin.php``` and ```pdf-digital-cert.php``` , ```x-auth-token``` retrieved from login will be POST to it and they will use the ```x-auth-token``` that receieved to retrieve the data.
 3. I will not be responsible not be liable for any problem that will produce losses or inconveniences incurred as a result of such changes or differences.
 4. MySejahtera's API on this web app was grabbed via ProxyMan on iPadOS and iOS version of MySejahtera (User Agent used in this PHP Web App when making request to MySejahtera : ```MySejahtera/1.0.36 (iPhone; iOS 14.4.2; Scale/2.00)```)
+5. [Chinese Introduction](https://blog.samsam123.name.my/articles/MySejahtera-PHP-Web-App)
 
 ## Firewall
 MySejahtera have started to block some region including US / Germany to access their website. 
