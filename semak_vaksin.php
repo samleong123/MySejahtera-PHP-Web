@@ -9,10 +9,10 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="MySejahtera Vaccine details checker">
 <meta property="og:description" content="Check your MySejahtera Vaccine details on this website via MySejahtera's API.">
-<meta property="og:image" content="https://www.samsam123.tk/MySejahtera/meta-og-1.jpg">
-<link rel="shortcut icon" type="image/x-icon" href="https://www.samsam123.tk/images/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="https://www.samsam123.tk/images/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="https://www.samsam123.tk/images/favicon.ico">
+<meta property="og:image" content="https://www.samsam123.name.my/MySejahtera/meta-og-1.jpg">
+<link rel="shortcut icon" type="image/x-icon" href="https://www.samsam123.name.my/images/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.samsam123.name.my/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.samsam123.name.my/images/favicon.ico">
 <title>MySejahtera Vaccine details checker</title>
 </head>
 <body>
@@ -92,6 +92,75 @@ $risk = $result['employeeInfo']['designation'];
 $ic_num = $result['employeeInfo']['licenceNumber'];
 $vax = $result['employeeInfo']['vacStatus']['status'];
 
+if ($register == 'Digital certificate issued') {
+	
+	echo '<main>
+  <h1 class="visually-hidden">Vaccination Status for"';
+echo $name;
+
+  
+  echo '</h1>';
+
+  echo '<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Vaccination Status for ';
+	echo $name;
+	echo '<strong>';
+
+  echo '</strong></h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <div class="feature-icon bg-primary bg-gradient">
+       
+        </div>
+        <h2>Digital Certificate Issued?</h2>
+        <p>';
+		  echo '<strong>';
+echo 'Yes';
+echo ' </br>';
+echo 'Date : ';
+echo $register_date;
+  echo '</strong>';
+  $booster_facility = $arr[1]['data'][0]['value'];
+$booster_location = $arr[1]['data'][1]['value'];
+$booster_date = $arr[1]['data'][2]['value'];
+$booster_time = $arr[1]['data'][3]['value'];
+echo '</p>';
+     echo '
+	</div>
+      <div class="feature col">
+        <div class="feature-icon bg-primary bg-gradient">
+       
+        </div>
+        <h2>Booster Dose Appointment</h2>
+        <p>';
+		
+		  echo '<strong>';
+		  echo 'Health Facility : ';
+		echo $booster_facility;
+		echo '</br>';
+		 echo 'Location : ';
+		echo $booster_location;
+		echo '</br>';
+			 echo 'Date : ';
+		echo $booster_date;
+		echo '</br>';
+		 echo 'Time : ';
+		echo $booster_time;
+		echo '</br>';
+  echo '</strong>';
+$booster_done = $arr[2]['state'];
+if ($booster_done == 'COMPLETED') {
+	echo '<strong>';
+echo 'Completed : ';
+		echo 'Yes';
+		echo '</br>';
+		echo '</strong>';
+	
+} 
+} else {
+
+
+
 if ($registered == 'COMPLETED') {
 echo '<main>
   <h1 class="visually-hidden">Vaccination Status for"';
@@ -121,6 +190,8 @@ echo $register_date;
   echo '</strong>';
 echo '</p>';
      
+
+
 }
 else { echo
 '<body>
@@ -311,7 +382,7 @@ echo '
 
 
 
-
+}
 
 
 
