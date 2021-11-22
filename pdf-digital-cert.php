@@ -85,6 +85,7 @@ header('x-auth-token:' . urlencode($token));
 $arr = json_decode($resp, true);
 $ic_num = $arr[0]['data']['icOrPassport'];
 $dob = $arr[0]['data']['dateOfBirth'];
+$name = $arr[0]['data']['name'];
 $generate = $arr[0]['data']['vaccinationCertGenerated'];
  if(empty($dob)) {echo '<html lang="en">
 <head>
@@ -187,7 +188,7 @@ $resp = curl_exec($curl);
 $http_response = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 curl_close($curl);
 header("Content-type: application/pdf");
-header('Content-Disposition: attachment; filename="Vaccine_Digital_Cert.pdf"');
+header('Content-Disposition: attachment; filename="Vaccine_Digital_Cert_'.$name.'.pdf"');
 header('x-auth-token:' . urlencode($token));
 echo $resp;
 } else {echo '<html lang="en">
