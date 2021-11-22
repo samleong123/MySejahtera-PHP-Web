@@ -155,7 +155,28 @@ echo 'Completed : ';
 		echo 'Yes';
 		echo '</br>';
 		echo '</strong>';
-	
+	$booster_done_time = $arr[2]['data'][0]['value'];
+$booster_done_num = $arr[2]['data'][1]['value'];
+$booster_done_batch = $arr[2]['data'][2]['value'];
+$booster_done_expiry = $arr[2]['data'][3]['value'];
+		echo '<strong>';
+			echo 'Vaccine Number : ';
+		echo $booster_done_num;
+		echo '</br>';
+	    echo 'Batch Number : ';
+		echo $booster_done_batch;
+		echo '</br>';
+		  echo 'Expiry Date : ';
+		echo $booster_done_expiry;
+		echo '</br>';
+		 echo '</strong>';
+		echo '</p>'; 
+			echo '<strong>';
+			echo 'Click <a href="pdf-digital-cert.php?x-auth-token=';
+		echo $token;
+		echo '"> here</a> to retrieve your PDF version of Vaccine Digital Certificate.';
+        echo '</strong> </div>';
+        echo '</div>';
 } 
 } else {
 
